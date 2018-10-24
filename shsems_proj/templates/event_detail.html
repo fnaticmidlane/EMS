@@ -1,0 +1,36 @@
+{%extends "base.html"%}
+
+{% block title%}
+
+Event Detail
+
+{% endblock title %}
+
+{% block content %}
+
+<div class="card">
+        <div class="card-header">
+        <h4> Event Details </h4>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title"> {{ event.name }} </h4>
+          <p class="card-text">
+              Schedule: {{event.date_from}} - {{event.date_to}}, - {{event.time_from}} - {{event.time_to}}
+            </p>
+
+            <p class="card-text">
+                Venue: {{ event.venue }}
+            </p>
+            <p class="card-text">
+                    {{ event.description }}
+                </p>
+
+        </div>
+        <div clas = "card-footer">
+            <a href ="{% url 'join_event' event.pk %}"
+            class = "btn btn-success">Join Event</a>
+        </div>
+
+      </div>
+
+{% endblock content %}

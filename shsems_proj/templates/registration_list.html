@@ -1,0 +1,43 @@
+{%extends "base.html"%}
+
+{%block title%}
+
+All Participants
+
+{%endblock title%}
+
+{%block content%}
+
+
+<div class="card  mt-5" >
+  <div class="card-header">
+    <h4> All Events </h4>
+  </div>
+  <div class="card-body">
+    
+    <div class="list-group">
+      {% for registration in registration_list%}
+      <a href="{% url 'registration_detail' registration.pk %}" class="list-group-item list-group-item-action flex-column align-items-start ">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"> {{registration.participant}} </h5>
+        <small>  {{registration.status}} </small>
+      </div>
+      <p class="mb-1"> {{event.description }}</p>
+    </a>
+  
+    {% empty %}
+    <a href="#!" class="list-group-item list-group-item-action list-group-item-warning">GG BRO NO PARTICIPANT YET</a>
+  
+    {% endfor %}
+  </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+{%endblock content%}
+
